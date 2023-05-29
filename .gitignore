@@ -64,3 +64,16 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Added by cargo
+/target
+Cargo.lock
+*.node
+
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
