@@ -5,8 +5,10 @@
   "main": "dist/src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-ts": "npx tsc",
-    "build": "napi build --platform --release --pipe \"prettier -w\"",
+    "clean": "rimraf dist index.js index.d.ts",
+    "build": "npm run clean && npm run build-rust && npm run build-ts",
+    "build-ts": "npx tsc && tsc-alias && node editScript.js",
+    "build-rust": "napi build --platform --release --pipe \"prettier -w\"",
     "build:debug": "napi build --platform --pipe \"prettier -w\"",
     "format": "run-p format:prettier format:rs format:toml",
     "format:prettier": "prettier . -w",
